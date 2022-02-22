@@ -1,14 +1,14 @@
 {
-"name": "Zero-YT7",
+"name": "Sanzy-YT",
 "version": "1.1.0",
-"description": "Please Subscribe Me On Youtube Zero YT7",
+"description": "Please Subscribe Me On Youtube Sanzy YT",
 "main": "start.js",
 "type": "commonjs",
 "scripts": {
 "start": "node start.js"
 },
 "keywords": [],
-"author": "Zero YT7",
+"author": "Sanzy YT",
 "license": "MIT",
 "dependencies": {
 "@adiwajshing/baileys-md": "github:adiwajshing/baileys#multi-device",
@@ -34,7 +34,7 @@
 "pino": "^7.0.5",
 "request": "^2.88.2",
 "util": "^0.12.4",
-"yt-search": "^2.10.2"
+"yargs": "^17.2.1"
 },
 "directories": {
 "lib": "lib"
