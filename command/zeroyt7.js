@@ -172,7 +172,6 @@ ${simbol} ${prefix}sticker
 ${simbol} ${prefix}smeme
 ${simbol} ${prefix}togif
 ${simbol} ${prefix}tomp4
-${simbol} ${prefix}tomp3
 ${simbol} ${prefix}toimage
 
 ⭓Owner Menu
@@ -497,17 +496,6 @@ await zeroyt7.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Co
 await fs.unlinkSync(media)
 }
 break
-case 'tomp3':
-	if (/document/.test(mime)) throw `Kirim/Reply Video/Audio Yang Ingin Dijadikan MP3 Dengan Caption ${prefix + command}`
-            if (!/video/.test(mime) && !/audio/.test(mime)) throw `Kirim/Reply Video/Audio Yang Ingin Dijadikan MP3 Dengan Caption ${prefix + command}`
-            if (!quoted) throw `Kirim/Reply Video/Audio Yang Ingin Dijadikan MP3 Dengan Caption ${prefix + command}`
-            m.reply(mess.wait)
-            let media = await quoted.download()
-            let { toAudio } = require('./command/converter')
-            let audio = await toAudio(media, 'mp4')
-            zeroyt7.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By Sanzy YT.mp3`}, { quoted : m })
-            }
-            break
 case 'togif': {
 if (!quoted) throw 'Reply Image'
 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
