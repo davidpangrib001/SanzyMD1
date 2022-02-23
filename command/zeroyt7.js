@@ -833,45 +833,11 @@ case 'ytmp33': {
             }
             break
 case 'play': {
-if (!text) throw 'Masukkan Link Youtube Nya'
+if (!text) throw 'Masukkan Judul Youtube Nya'
 m.reply(mess.wait)
-webapi = await fetchJson(api('zeroyt7', '/ytMp3', { url: text }, 'apikey'))
-imagenya = await getBuffer(webapi.result.thumb)
-var template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-templateMessage: {
-hydratedTemplate: {
-locationMessage: { 
-degreesLatitude: 0,
-degreesLongitude: 0, 
-jpegThumbnail: imagenya,
-},
-hydratedContentText: `Title : ${webapi.result.title}\nSize : ${webapi.result.size}\nViews : ${webapi.result.views}\nLikes : ${webapi.result.likes}\nDislike : ${webapi.result.dislike}\nChannel : ${webapi.result.channel}\nUpload Date : ${webapi.result.uploadDate}\nDesc : ${webapi.result.desc}`,
-hydratedFooterText: `𝑺𝒂𝒏𝒛𝒚`,
-hydratedButtons: [{
-urlButton: {
-displayText: '𝑹𝒆𝒔 𝑨𝒑𝒊',
-url: `https://sanzykey.herokuapp.com/api`
-}
-}, {
-urlButton: {
-displayText: '𝒀𝒐𝒖𝒕𝒖𝒃𝒆 𝑶𝒘𝒏𝒆𝒓',
-url: 'https://youtube.com/c/sanzyyt'
-}
-}, {
-quickReplyButton: {
-displayText: '𝑨𝑼𝑫𝑰𝑶',
-id: `ytmp33 ${isUrl(text)}`
-}
-}, {
-quickReplyButton: {
-displayText: '𝑽𝑰𝑫𝑬𝑶',
-id: `ytmp44 ${isUrl(text)}`
-}
-}]
-}
-}
-}), { userJid: m.chat, quoted: ftroli })
-zeroyt7.relayMessage(m.chat, template.message, { messageId: template.key.id })
+webapi = await fetchJson(api('zeroyt7', '/ytPlay', { query: text }, 'apikey'))
+zeroyt7.sendMessage(m.chat, { image: { url: webapi.result.thumb }, caption: `Title : ${webapi.result.title}\nSize : ${webapi.result.size}\nViews : ${webapi.result.views}\nLikes : ${webapi.result.likes}\nDislike : ${webapi.result.dislike}\nChannel : ${webapi.result.channel}\nUpload Date : ${webapi.result.uploadDate}`}, { quoted: ftroli })
+zeroyt7.sendMessage(m.chat, { audio: { url: webapi.result.result } }, { quoted: ftroli })
 }
 break
 case 'tiktokdl': {
