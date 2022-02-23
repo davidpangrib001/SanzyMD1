@@ -496,6 +496,7 @@ await zeroyt7.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Co
 await fs.unlinkSync(media)
 }
 break
+
 case 'togif': {
 if (!quoted) throw 'Reply Image'
 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
@@ -719,7 +720,7 @@ zeroyt7.sendMessage(m.chat, buttonMessage, { quoted: ftroli })
 }
 break
 
-case 'ytmp4': {
+case 'ytmp44': {
 if (!text) throw 'Masukkan Link Youtube Nya'
 m.reply(mess.wait)
 webapi = await fetchJson(api('zeroyt7', '/ytMp4', { url: text }, 'apikey'))
@@ -761,7 +762,7 @@ id: `ytmp44 ${q}`
 zeroyt7.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
-case 'ytmp44': {
+case 'ytmp4': {
 if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27`
                 let result = await ytv(isUrl(text)[0])
                 let { dl_link, thumb, title, filesizeF, filesize } = result
@@ -769,7 +770,7 @@ if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFM
                 zeroyt7.sendMessage(m.chat, { video: { url: dl_link }, caption: `⭔ Title : ${title}\n⭔ File Size : ${filesizeF}\n⭔ Url : ${text}\n⭔ Ext : MP4` }, { quoted: m })
             }
             break
-case 'ytmp3': {
+case 'ytmp33': {
 if (!text) throw 'Masukkan Link Youtube Nya'
 m.reply(mess.wait)
 webapi = await fetchJson(api('zeroyt7', '/ytMp3', { url: text }, 'apikey'))
@@ -797,12 +798,12 @@ url: 'https://youtube.com/c/sanzyyt'
 }, {
 quickReplyButton: {
 displayText: '𝑨𝑼𝑫𝑰𝑶',
-id: `ytmp33 ${isUrl(text)}`
+id: `ytmp3 ${isUrl(text)}`
 }
 }, {
 quickReplyButton: {
 displayText: '𝑽𝑰𝑫𝑬𝑶',
-id: `ytmp44 ${isUrl(text)}`
+id: `ytmp4 ${isUrl(text)}`
 }
 }]
 }
@@ -811,7 +812,7 @@ id: `ytmp44 ${isUrl(text)}`
 zeroyt7.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
-case 'ytmp33': {
+case 'ytmp3': {
   if (!text) throw `Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27`
                 let result = await yta(isUrl(text)[0])
                 let { dl_link, thumb, title, filesizeF, filesize } = result
